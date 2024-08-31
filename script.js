@@ -24,5 +24,12 @@ function setup() {
 }
 
 function draw() {
-    background(220);
+    background();
+
+    for(let i = 0; i < cols; i++){
+        for(let j = 0; j < rows; j++){
+            stroke(255);
+            fill(grid[i][j]*255);
+        }
+    }
 }
