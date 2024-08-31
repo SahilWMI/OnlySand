@@ -5,3 +5,13 @@ function make2DArray(cols, rows) {
     }
     return arr;
 }
+
+
+
+function setup() {
+    createCanvas(400, 400);
+}
+
+function draw() {
+    background(220);
+}
