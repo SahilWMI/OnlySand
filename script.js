@@ -60,10 +60,10 @@ function draw() {
 
                 if (below === 0) {
                     nextGrid[i][j + 1] = 1;
-                } else if (belowL === 0) {
-                    nextGrid[i - 1][j + 1] = 1;
-                } else if (belowR === 0) {
-                    nextGrid[i + 1][j + 1] = 1;
+                } else if (belowA === 0) {
+                    nextGrid[i + dir][j + 1] = 1;
+                } else if (belowB === 0) {
+                    nextGrid[i - dir][j + 1] = 1;
                 } else {
                     nextGrid[i][j] = 1;
                 }
