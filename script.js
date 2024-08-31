@@ -23,9 +23,11 @@ function setup() {
 }
 
 function mousePressed() {
-let col = floor(mouseX / w);
-let row = floor(mouseY / w);
-grid[col][row] = 1;
+    let col = floor(mouseX / w);
+    let row = floor(mouseY / w);
+    if (col >= 0 && col < cols && row >= 0 && row < rows) {
+        grid[col][row] = 1;
+    }
 }
 
 function draw() {
@@ -46,23 +48,27 @@ function draw() {
     for(let i = 0; i < cols; i++) {
         for(let j = 0; j < rows; j++) {
             let state = grid[i][j];
-
             if (state === 1) {
-                if (j + 1 < rows && grid[i][j + 1] === 0) {
+                let below = (j + 1 < rows) ? grid[i][j + 1] : 1;
+                let belowL = (i - 1 >= 0 && j + 1 < rows) ? grid[i - 1][j + 1] : 1;
+                let belowR = (i + 1 < cols && j + 1 < rows) ? grid[i + 1][j + 1] : 1;
+                
+                if (below === 0) {
                     nextGrid[i][j + 1] = 1;
-                } 
-                else if (i - 1 >= 0 && j + 1 < rows && grid[i - 1][j + 1] === 0) {
+                } else if (belowL === 0) {
                     nextGrid[i - 1][j + 1] = 1;
-                } 
-                else if (i + 1 < cols && j + 1 < rows && grid[i + 1][j + 1] === 0) {
+                } else if (belowR === 0) {
                     nextGrid[i + 1][j + 1] = 1;
-                } 
-                else {
+                } else {
                     nextGrid[i][j] = 1;
                 }
             }
         }  
     }
+
+    grid = nextGrid;
+}
+
 
     grid = nextGrid;
 }
