@@ -2,7 +2,7 @@ function make2DArray(cols, rows) {
     let arr = new Array(Math.floor(cols));
     for (let i = 0; i < arr.length; i++) {
         arr[i] = new Array(Math.floor(rows));
-        for (let j = 0; j < arr[i].length; j++) {
+        for (let j = 0; j < arr[i].length; j++){
             arr[i][j] = 0;
         }
     }
@@ -13,16 +13,12 @@ let grid;
 let w = 10;
 let cols, rows;
 
-let hueValue = 200;
-
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    colorMode(HSB, 360, 255, 255);
     cols = floor(width / w);
     rows = floor(height / w);
     grid = make2DArray(cols, rows);
 
-    grid[20][10] = 1;
 }
 
 function windowResized() {
@@ -44,12 +40,11 @@ function mouseDragged() {
                 let col = mouseCol + i;
                 let row = mouseRow + j;
                 if (col >= 0 && col < cols && row >= 0 && row < rows) {
-                    grid[col][row] = hueValue;
+                    grid[col][row] = 1;
                 }
             }
         }
     }
-    hueValue = (hueValue + 1) % 360;
 }
 
 function draw() {
@@ -59,7 +54,7 @@ function draw() {
         for (let j = 0; j < rows; j++) {
             noStroke();
             if (grid[i][j] > 0) {
-                fill(grid[i][j], 255, 255);
+                fill(194, 178, 128);
                 let x = i * w;
                 let y = j * w;
                 square(x, y, w);
