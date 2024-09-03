@@ -54,7 +54,7 @@ function draw() {
         for (let j = 0; j < rows; j++) {
             noStroke();
             if (grid[i][j] > 0) {
-                fill(162, 51, 255);
+                fill(203, 189, 147);
                 let x = i * w;
                 let y = j * w;
                 square(x, y, w);
