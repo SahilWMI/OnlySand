@@ -1,19 +1,42 @@
-body, html {
+body {
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    background-color: #2c3e50;
+    height: 100vh;
+    background-color: hsl(0, 0%, 0%);
+    color: white;
+    overflow: hidden;
 }
 
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    text-align: center;
 }
 
-#canvas-container {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+#logo h1 {
+    margin: 0;
+    padding: 10px;
+    font-size: 5rem;
 }
+
+#defaultCanvas0 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.unselectable {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#logo{
+    font-family: "Tiny5", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
