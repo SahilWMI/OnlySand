@@ -23,9 +23,6 @@ function setup() {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
-    cols = floor(width / w);
-    rows = floor(height / w);
-    grid = make2DArray(cols, rows);
 }
 
 function mouseDragged() {
@@ -48,7 +45,7 @@ function mouseDragged() {
 }
 
 function draw() {
-    background(0);
+    clear()
 
     for (let i = 0; i < cols; i++) {
         for (let j = 0; j < rows; j++) {
